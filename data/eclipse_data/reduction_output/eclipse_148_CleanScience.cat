@@ -1,0 +1,19 @@
+#   1 NUMBER          Running object number
+#   2 MAG_ISO         Isophotal magnitude                             [mag]
+#   3 MAGERR_ISO      RMS error for isophotal magnitude               [mag]
+#   4 FLUX_APER       Flux vector within fixed circular aperture(s)   [count]
+#   5 FLUXERR_APER    RMS error vector for aperture flux(es)          [count]
+#   6 MAG_APER        Fixed aperture magnitude vector                 [mag]
+#   7 MAGERR_APER     RMS error vector for fixed aperture mag.        [mag]
+#   8 MAG_AUTO        Kron-like elliptical aperture magnitude         [mag]
+#   9 MAGERR_AUTO     RMS error for AUTO magnitude                    [mag]
+#  10 X_IMAGE         Object position along x                         [pixel]
+#  11 Y_IMAGE         Object position along y                         [pixel]
+#  12 THETA_IMAGE     Position angle (CCW/x)                          [deg]
+#  13 ELONGATION      A_IMAGE/B_IMAGE
+#  14 ELLIPTICITY     1 - B_IMAGE/A_IMAGE
+#  15 FWHM_IMAGE      FWHM assuming a gaussian core                   [pixel]
+#  16 FLAGS           Extraction flags
+         1 -16.1532   0.0037      93500.3      1758.14 -12.4270   0.0204 -17.0137   0.0034     35.962     18.337 -10.4    2.138    0.532    87.74  16
+         2 -15.0130   0.0020       482025      1441.79 -14.2077   0.0032 -13.3204   0.0109    365.220      1.328  -0.2   18.655    0.946     0.00  28
+         3 -14.1155   0.0038       239854      1403.59 -13.4499   0.0064  99.0000  99.0000    138.097      1.342  -0.1   14.565    0.931     7.09  28

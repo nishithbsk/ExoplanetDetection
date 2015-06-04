@@ -1,0 +1,47 @@
+
+# Coordinate list: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_50_CleanScience.geomapin  Transform: broccoli
+#     Results file: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_50_CleanScience.geosum
+# Coordinate mapping status
+#     X fit ok.  Y fit ok.
+#     Xin and Yin fit rms: 0.  0.
+# Coordinate mapping parameters
+#     Mean Xref and Yref: 277.1789  291.4997
+#     Mean Xin and Yin: 277.1789  291.49970.7
+#     X and Y shift: 0.  0.  (xin  yin)
+#     X and Y scale: 1.  1.  (xin / xref  yin / yref)
+#     X and Y axis rotation: 0.00000  0.00000  (degrees  degrees)
+
+# Input Coordinate Listing
+#     Column 1: X (reference) 
+#     Column 2: Y (reference)
+#     Column 3: X (input)
+#     Column 4: Y (input)
+#     Column 5: X (fit)
+#     Column 6: Y (fit)
+#     Column 7: X (residual)
+#     Column 8: Y (residual)
+
+  350.537   147.051    350.537   147.051    350.537   147.051         0.        0.
+  281.704    298.93    281.704    298.93    281.704    298.93         0.        0.
+  130.837   385.866    130.837   385.866    130.837   385.866         0.        0.
+  482.381   195.949    482.381   195.949    482.381   195.949         0.        0.
+  118.928   131.863    118.928   131.863    118.928   131.863         0.        0.
+  373.326    40.944    373.326    40.944    373.326    40.944         0.        0.
+    425.5   497.493      425.5   497.493      425.5   497.493         0.        0.
+   412.01    48.811     412.01    48.811     412.01    48.811         0.        0.
+  444.109   226.618    444.109   226.618    444.109   226.618         0.        0.
+  241.685   342.997    241.685   342.997    241.685   342.997         0.        0.
+   22.258   371.419     22.258   371.419     22.258   371.419         0.        0.
+  484.675    39.851    484.675    39.851    484.675    39.851         0.        0.
+  450.858    43.885    450.858    43.885    450.858    43.885         0.        0.
+  398.547   409.933    398.547   409.933    398.547   409.933         0.        0.
+  330.315   455.448    330.315   455.448    330.315   455.448         0.        0.
+   25.917   344.312     25.917   344.312     25.917   344.312         0.        0.
+   58.023    410.31     58.023    410.31     58.023    410.31         0.        0.
+  282.929   435.181    282.929   435.181    282.929   435.181         0.        0.
+  453.403   391.144    453.403   391.144    453.403   391.144         0.        0.
+  100.195   371.007    100.195   371.007    100.195   371.007         0.        0.
+  192.201   437.015    192.201   437.015    192.201   437.015         0.        0.
+  119.001   303.467    119.001   303.467    119.001   303.467         0.        0.
+  195.776   374.999    195.776   374.999    195.776   374.999         0.        0.
+

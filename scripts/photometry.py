@@ -14,9 +14,10 @@ import numpy as np
 import fitmodel
 import pyfits, ldac
 import sys
-import sextractor
+from sextractor import *
 import matplotlib.pyplot as plt
-
+import os
+import string
 
 ################################################
 # 1.0528
@@ -236,135 +237,34 @@ def createPhotCat(image, detectcat, masterbias, masterdark):
 
         
 ##############
-if sys.argv[2] == "m3":  
-    red_file_path = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/data_reduction_workdir_m3/red_data_reduction_workdir/coadd.fits'
-    green_file_path = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/data_reduction_workdir_m3/green_data_reduction_workdir/coadd.fits'
-    blue_file_path = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/data_reduction_workdir_m3/blue_data_reduction_workdir/coadd.fits'
-    ref_catalog = ldac.openObjectFile('/afs/ir.stanford.edu/class/physics100/workdir/DAN/ref_detect_m3.cat')
-    red_masterbias = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_m3/red_out_Bias.fits'
-    red_masterdark = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_m3/red_out_Master_Dark.fits'
-    green_masterbias = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_m3/green_out_Bias.fits'
-    green_masterdark = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_m3/green_out_Master_Dark.fits'
-    blue_masterbias = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_m3/blue_out_Bias.fits'
-    blue_masterdark = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_m3/blue_out_Master_Dark.fits'
+masterbias_file_path = '/afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/normal_data/process_output/normal_Master_Bias.fits'
+masterdark_file_path = '/afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/normal_data/process_output/normal_Master_Dark.fits'
 
-if sys.argv[2] == "ngc2158":
-    red_file_path = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/data_reduction_workdir_NGC2158/red_data_reduction_workdir/coadd.fits'
-    green_file_path = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/data_reduction_workdir_NGC2158/green_data_reduction_workdir/coadd.fits'
-    blue_file_path = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/data_reduction_workdir_NGC2158/blue_data_reduction_workdir/coadd.fits'
-    ref_catalog = ldac.openObjectFile('/afs/ir.stanford.edu/class/physics100/workdir/DAN/ref_detect_NGC2158.cat')
-    red_masterbias = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_NGC2158/red_out_Bias.fits'
-    red_masterdark = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_NGC2158/red_out_Master_Dark.fits'
-    green_masterbias = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_NGC2158/green_out_Bias.fits'
-    green_masterdark = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_NGC2158/green_out_Master_Dark.fits'
-    blue_masterbias = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_NGC2158/blue_out_Bias.fits'
-    blue_masterdark = '/afs/ir.stanford.edu/class/physics100/workdir/DAN/output_NGC2158/blue_out_Master_Dark.fits'
+masterdark = pyfits.open(masterdark_file_path)[0]
+masterbias = pyfits.open(masterbias_file_path)[0]
 
-red, green, blue = pyfits.open(red_file_path)[0], pyfits.open(green_file_path)[0], pyfits.open(blue_file_path)[0]
-red_masterdark, green_masterdark, blue_masterdark = pyfits.open(red_masterdark)[0], pyfits.open(green_masterdark)[0], pyfits.open(blue_masterdark)[0]
-red_masterbias, green_masterbias, blue_masterbias = pyfits.open(red_masterbias)[0], pyfits.open(green_masterbias)[0], pyfits.open(blue_masterbias)[0]
+base_name = sys.argv[1]
 
-ims_rgb = [red, green, blue]
-output_base_name = sys.argv[1]
+folder = '/afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/normal_data/reduction_output/coadd_images/'
+all_coadd_images = os.listdir(folder)
+for i, image in enumerate(all_coadd_images):
+	full_path = folder + image
+	obs = pyfits.open(full_path)[0]
+	output_base_name = base_name + '_' + str(i)
+	ref_catalog_file = output_base_name + '_refdetect.cat'
+	ref_file = str("/afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/normal_data/photometry_output/ref_files/" + ref_catalog_file)
+	sextractor(full_path, ref_file)
+	ref_catalog = ldac.openObjectFile(ref_file)
 
-# Our group uses the Red filter.
-# Generally, we have observed the red filter to give us the better baseline.
-# Stars generate more light in the red wavelength.
-# ref_catalog_file = output_base_name + '_detect.cat'
-# sextractor.sextractor(red, ref_catalog_file)
+	# New Lab 1.5
+	catalog = createPhotCat(obs, ref_catalog, masterbias, masterdark)
 
-#ref_catalog = ldac.openObjectFile('/afs/ir.stanford.edu/class/physics100/workdir/DAN/ref_detect_NGC2158.cat')
-
-# Old Lab 1.5
-# always, r, then g, then b
-# new_cols = []
-# mags_rgb = []
-# for i in xrange(len(ims)):
-#     fluxs, fluxerrs, backprobs, mags, magerrs = createPhotCat(ims_rgb[i], ref_catalog)
-#     mags_rgb.append(mags)
-#     name = str(i)
-#     new_cols.extend([
-#         pyfits.Column(name = name + 'flux', format='E', array=fluxs),
-#         pyfits.Column(name = name + 'fluxerr', format='E', array=fluxerrs),
-#         pyfits.Column(name = name + 'backprob', format='E', array=backprobs),
-#         pyfits.Column(name = name + 'mag', format='E', array=mags),
-#         pyfits.Column(name = name + 'magerr', format='E', array=magerrs),
-#     ])
-
-# blue_minus_green = mags_rgb[2] - mags_rgb[1]
-# green_minus_red = mags_rgb[1] - mags_rgb[0]
-# new_cols.extend([
-#     pyfits.Column(name = 'b_minus_g', format='E', array=blue_minus_green),
-#     pyfits.Column(name = 'g_minus_r', format='E', array=green_minus_red),  
-# ])
-
-# photcat = ldac.LDACCat(pyfits.new_table(
-#     ref_catalog.hdu.columns + pyfits.ColDefs(new_cols), 
-#     header=ref_catalog.hdu.header
-# ))
-
-# photcat.saveas(outfile_base_name + '.cat', clobber=True)
-
-# New Lab 1.5
-red_catalog = createPhotCat(red, ref_catalog, red_masterbias, red_masterdark)
-green_catalog = createPhotCat(green, ref_catalog, green_masterbias, green_masterdark)
-blue_catalog = createPhotCat(blue, ref_catalog, blue_masterbias, blue_masterdark)
-
-colors_blue_green = blue_catalog['mag'] - green_catalog['mag']
-colors_green_red = green_catalog['mag'] - red_catalog['mag']
-blue_green_err = np.sqrt(blue_catalog['magerr']**2 + green_catalog['magerr']**2)
-green_red_err = np.sqrt(green_catalog['magerr']**2 + red_catalog['magerr']**2)
-
-fluxR, fluxV, fluxB = red_catalog['flux'], green_catalog['flux'], blue_catalog['flux']
-fluxerrR, fluxerrV, fluxerrB = red_catalog['fluxerr'], green_catalog['fluxerr'], blue_catalog['fluxerr']
-magR, magV, magB = red_catalog['mag'], green_catalog['mag'], blue_catalog['mag']
-magerrR, magerrV, magerrB = red_catalog['magerr'], green_catalog['magerr'], blue_catalog['magerr']
-backprobR, backprobV, backprobB = red_catalog['backprob'], green_catalog['backprob'], blue_catalog['backprob']
+	flux = catalog['flux']
+	fluxerr = catalog['fluxerr']
+	mag = catalog['mag']
+	magerr = catalog['magerr']
+	backprob = catalog['backprob']
 
 
-new_cols = []
-new_cols.extend([pyfits.Column(name='fluxR',format='E',array=fluxR),
-                 pyfits.Column(name='fluxV',format='E',array=fluxV),
-                 pyfits.Column(name='fluxB',format='E',array=fluxB),
-                 pyfits.Column(name='B - V',format='E',array=colors_blue_green),
-                 pyfits.Column(name='V - R',format='E',array=colors_green_red),
-                 pyfits.Column(name='BVerr',format='E',array=blue_green_err),
-                 pyfits.Column(name='VRerr',format='E',array=green_red_err),
-                 pyfits.Column(name='fluxerrR',format='E',array=fluxerrR),
-                 pyfits.Column(name='fluxerrB',format='E',array=fluxerrB),
-                 pyfits.Column(name='fluxerrV',format='E',array=fluxerrV),
-                 pyfits.Column(name='magR',format='E',array=magR),
-                 pyfits.Column(name='magB',format='E',array=magB),
-                 pyfits.Column(name='magV',format='E',array=magV),
-                 pyfits.Column(name='magerrR',format='E',array=magerrR),
-                 pyfits.Column(name='magerrB',format='E',array=magerrB),
-                 pyfits.Column(name='magerrV',format='E',array=magerrV),
-                 pyfits.Column(name='backprobR',format='E',array=backprobR),
-                 pyfits.Column(name='backprobB',format='E',array=backprobB),
-                 pyfits.Column(name='backprobV',format='E',array=backprobV)])
+	catalog.saveas('/usr/class/physics100/workdir/DAN_Project/data/normal_data/photometry_output/normal_files/' + output_base_name + '.cat', clobber=True)
 
-combined_catalog = ldac.LDACCat(pyfits.new_table(green_catalog.hdu.columns + pyfits.ColDefs(new_cols), header=green_catalog.hdu.header))
-
-combined_catalog.saveas(output_base_name + '_combined.cat', clobber=True)
-
-
-# OLD CODE !!!!
-# plt.gca().invert_yaxis()
-# plt.scatter(combined_catalog['Blue - Green'], combined_catalog['mag'])
-# plt.title('Mag Vs. Blue - Green')
-# plt.ylabel('mag')
-# plt.xlabel('blue-green')
-# plt.show()
-
-# plt.gca().invert_yaxis()
-# plt.scatter(combined_catalog['Green - Red'], combined_catalog['mag'])
-# plt.title('Mag Vs. Green - Red')
-# plt.ylabel('mag')
-# plt.xlabel('green - red')
-# plt.show()
-
-# plt.scatter(combined_catalog['mag'], combined_catalog['Green - Red'])
-# plt.title('Green - Red Vs. Mag')
-# plt.xlabel('mag')
-# plt.ylabel('Green - Red')
-# plt.show()

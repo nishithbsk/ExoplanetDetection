@@ -1,0 +1,38 @@
+
+# Coordinate list: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_132_CleanScience.geomapin  Transform: broccoli
+#     Results file: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_132_CleanScience.geosum
+# Coordinate mapping status
+#     X fit ok.  Y fit ok.
+#     Xin and Yin fit rms: 0.  0.
+# Coordinate mapping parameters
+#     Mean Xref and Yref: 332.3884  234.022
+#     Mean Xin and Yin: 332.3884  234.0220.7
+#     X and Y shift: 0.  0.  (xin  yin)
+#     X and Y scale: 1.  1.  (xin / xref  yin / yref)
+#     X and Y axis rotation: 0.00000  0.00000  (degrees  degrees)
+
+# Input Coordinate Listing
+#     Column 1: X (reference) 
+#     Column 2: Y (reference)
+#     Column 3: X (input)
+#     Column 4: Y (input)
+#     Column 5: X (fit)
+#     Column 6: Y (fit)
+#     Column 7: X (residual)
+#     Column 8: Y (residual)
+
+  353.131   153.839    353.131   153.839    353.131   153.839         0.        0.
+  284.218    305.62    284.218    305.62    284.218    305.62         0.        0.
+  133.307   392.672    133.307   392.672    133.307   392.672         0.        0.
+   485.06   202.711     485.06   202.711     485.06   202.711         0.        0.
+  121.322   138.766    121.322   138.766    121.322   138.766         0.        0.
+  375.822    47.666    375.822    47.666    375.822    47.666         0.        0.
+  428.158   504.184    428.158   504.184    428.158   504.184         0.        0.
+   24.845   378.114     24.845   378.114     24.845   378.114         0.        0.
+  414.521    55.507    414.521    55.507    414.521    55.507         0.        0.
+  446.884    233.33    446.884    233.33    446.884    233.33         0.        0.
+  487.312    46.706    487.312    46.706    487.312    46.706         0.        0.
+  453.367    50.892    453.367    50.892    453.367    50.892         0.        0.
+  244.158   349.627    244.158   349.627    244.158   349.627         0.        0.
+  401.332   416.673    401.332   416.673    401.332   416.673         0.        0.
+

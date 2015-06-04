@@ -1,0 +1,37 @@
+
+# Coordinate list: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_99_CleanScience.geomapin  Transform: broccoli
+#     Results file: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_99_CleanScience.geosum
+# Coordinate mapping status
+#     X fit ok.  Y fit ok.
+#     Xin and Yin fit rms: 0.05969797  0.06338439
+# Coordinate mapping parameters
+#     Mean Xref and Yref: 325.563  216.3092
+#     Mean Xin and Yin: 320.6804  216.85350.7
+#     X and Y shift: -5.018712  0.5249835  (xin  yin)
+#     X and Y scale: 1.000317  1.000317  (xin / xref  yin / yref)
+#     X and Y axis rotation: 0.00868  0.00868  (degrees  degrees)
+
+# Input Coordinate Listing
+#     Column 1: X (reference) 
+#     Column 2: Y (reference)
+#     Column 3: X (input)
+#     Column 4: Y (input)
+#     Column 5: X (fit)
+#     Column 6: Y (fit)
+#     Column 7: X (residual)
+#     Column 8: Y (residual)
+
+    351.6   150.136    346.724    150.72   346.7155  150.6553  0.0084534 0.0646973
+  282.729   301.945    277.808   302.657   277.8457  302.5229  -0.037689 0.1341248
+  131.811   389.049    126.921    389.68   126.8931  389.6774  0.0279388 0.0026245
+  483.412   198.967    478.624   199.554   478.5767  199.4818  0.0472717 0.0722046
+    119.9   134.962    114.922   135.465   114.9398  135.5116  -0.017769 -0.046616
+  374.317    44.023    369.508    44.499   369.4236  44.50521  0.0843506 -0.006207
+  426.577   500.766    421.748   501.351   421.7694  501.3851  -0.021454 -0.034088
+  445.339   229.529    440.478   230.086   440.4963  230.0593   -0.01828 0.0267181
+  413.045    51.836    408.139     52.24   408.1651  52.31482  -0.026123 -0.074814
+  242.678   346.101    237.673    346.66   237.7887   346.699  -0.115692 -0.038971
+   23.288   374.605      18.45   375.252   18.33345  375.2452  0.1165504 0.0067749
+  485.658    43.084    480.751     43.54   480.7998  43.54903  -0.048798 -0.009033
+  451.966    47.017    447.099    47.391   447.0977  47.48839  0.0012512 -0.097389
+

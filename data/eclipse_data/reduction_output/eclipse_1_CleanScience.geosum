@@ -1,0 +1,38 @@
+
+# Coordinate list: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_1_CleanScience.geomapin  Transform: broccoli
+#     Results file: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_1_CleanScience.geosum
+# Coordinate mapping status
+#     X fit ok.  Y fit ok.
+#     Xin and Yin fit rms: 0.08979897  0.1142724
+# Coordinate mapping parameters
+#     Mean Xref and Yref: 330.9256  220.9317
+#     Mean Xin and Yin: 332.4728  221.10960.7
+#     X and Y shift: 1.661784  0.2231172  (xin  yin)
+#     X and Y scale: 0.9996972  0.9996972  (xin / xref  yin / yref)
+#     X and Y axis rotation: 359.99625  359.99625  (degrees  degrees)
+
+# Input Coordinate Listing
+#     Column 1: X (reference) 
+#     Column 2: Y (reference)
+#     Column 3: X (input)
+#     Column 4: Y (input)
+#     Column 5: X (fit)
+#     Column 6: Y (fit)
+#     Column 7: X (residual)
+#     Column 8: Y (residual)
+
+  351.698   140.649    353.155   140.952   353.2441  140.8525  -0.089111  0.099472
+  282.813   292.545    284.285   292.666     284.37   292.698  -0.085022 -0.032043
+  131.894   379.538    133.434   379.611    133.491  379.6548  -0.057022 -0.043823
+  483.492   189.538    485.018   189.781    484.995  189.7353  0.0230103 0.0456848
+  120.026   125.421    121.496   125.842   121.6432   125.614   -0.14724 0.2280197
+  374.484    34.552    375.963     34.89   376.0302  34.78913  -0.067139 0.1008682
+  426.681   491.267    428.295   491.401   428.1815  491.3693  0.1135254 0.0317383
+  413.039    42.476    414.676    42.676   414.5729  42.71326  0.1030579 -0.037258
+   23.399   365.115     24.956   365.034   25.02983  365.2291  -0.073833 -0.195099
+  485.684    33.745    487.318    33.986   487.1965  33.98965  0.1214905 -0.003647
+  451.999    37.567    453.503    37.779   453.5215  37.80829  -0.018463 -0.029289
+  445.248    220.19    446.822    220.39   446.7606  220.3755  0.0614319 0.0144501
+  242.686   336.668    244.361   336.848   244.2523  336.8051  0.1086884 0.0429382
+  399.816   403.773    401.337   403.678   401.3304     403.9  0.0066528 -0.221985
+

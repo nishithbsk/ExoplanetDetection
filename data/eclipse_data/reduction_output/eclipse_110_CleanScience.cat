@@ -1,0 +1,25 @@
+#   1 NUMBER          Running object number
+#   2 MAG_ISO         Isophotal magnitude                             [mag]
+#   3 MAGERR_ISO      RMS error for isophotal magnitude               [mag]
+#   4 FLUX_APER       Flux vector within fixed circular aperture(s)   [count]
+#   5 FLUXERR_APER    RMS error vector for aperture flux(es)          [count]
+#   6 MAG_APER        Fixed aperture magnitude vector                 [mag]
+#   7 MAGERR_APER     RMS error vector for fixed aperture mag.        [mag]
+#   8 MAG_AUTO        Kron-like elliptical aperture magnitude         [mag]
+#   9 MAGERR_AUTO     RMS error for AUTO magnitude                    [mag]
+#  10 X_IMAGE         Object position along x                         [pixel]
+#  11 Y_IMAGE         Object position along y                         [pixel]
+#  12 THETA_IMAGE     Position angle (CCW/x)                          [deg]
+#  13 ELONGATION      A_IMAGE/B_IMAGE
+#  14 ELLIPTICITY     1 - B_IMAGE/A_IMAGE
+#  15 FWHM_IMAGE      FWHM assuming a gaussian core                   [pixel]
+#  16 FLAGS           Extraction flags
+         1 -15.5112   0.0039      56318.6       1061.6 -11.8766   0.0205 -16.4348   0.0034     35.382     17.411 -10.2    2.229    0.551    84.82  16
+         2 -14.3175   0.0027       211728      878.703 -13.3144   0.0045 -12.8551   0.0109    365.966      1.333  -0.1   21.349    0.953     0.00  28
+         3 -13.3309   0.0042       175291      869.242 -13.1094   0.0054  99.0000  99.0000    139.249      1.341  -0.1   10.742    0.907     9.30  24
+         4 -10.2364   0.0334      15396.9      1052.19 -10.4686   0.0742 -10.5310   0.0406    479.258    200.043   0.6    1.167    0.143     2.27   0
+         5 -10.4205   0.0321      31239.7      853.783 -11.2368   0.0297 -11.8056   0.0255    280.710    511.340   4.3    2.085    0.520     3.62  24
+         6 -11.8919   0.0119      65158.9      1063.95 -12.0349   0.0177 -12.0079   0.0152    347.367    151.331  54.8    1.114    0.102     2.38   0
+         7 -12.7094   0.0047       139394      1082.29 -12.8606   0.0084 -12.7324   0.0055    496.055     41.258 -84.8    1.117    0.105     4.74   4
+         8 -10.6191   0.0278      21282.3      1055.18 -10.8200   0.0538 -10.8177   0.0346    127.510    390.262  26.9    1.025    0.025     2.33   0
+         9 -11.0080   0.0209      27290.3      1054.48 -11.0900   0.0420 -11.1512   0.0278    278.479    303.036  83.0    1.147    0.128     2.44   0

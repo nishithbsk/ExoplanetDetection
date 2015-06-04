@@ -1,0 +1,36 @@
+
+# Coordinate list: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_3_CleanScience.geomapin  Transform: broccoli
+#     Results file: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_3_CleanScience.geosum
+# Coordinate mapping status
+#     X fit ok.  Y fit ok.
+#     Xin and Yin fit rms: 0.07865752  0.07192151
+# Coordinate mapping parameters
+#     Mean Xref and Yref: 332.5381  196.0502
+#     Mean Xin and Yin: 329.9245  196.51840.7
+#     X and Y shift: -2.449147  0.5246511  (xin  yin)
+#     X and Y scale: 0.9995587  0.9995587  (xin / xref  yin / yref)
+#     X and Y axis rotation: 359.99481  359.99481  (degrees  degrees)
+
+# Input Coordinate Listing
+#     Column 1: X (reference) 
+#     Column 2: Y (reference)
+#     Column 3: X (input)
+#     Column 4: Y (input)
+#     Column 5: X (fit)
+#     Column 6: Y (fit)
+#     Column 7: X (residual)
+#     Column 8: Y (residual)
+
+  351.698   140.649     349.08   141.191    349.081  141.1433  -9.766E-4 0.0476532
+  282.813   292.545    280.239   292.838   280.2126  292.9661  0.0263672 -0.128113
+  131.894   379.538    129.421   379.816   129.3524  379.9071  0.0686188 -0.091064
+  483.492   189.538    480.862   189.973   480.8124  190.0227  0.0495911 -0.049667
+  120.026   125.421    117.465   125.968   117.5126  125.9011  -0.047569 0.0668564
+  374.484    34.552     371.81    35.138   371.8665  35.09522  -0.056488 0.0427818
+  426.681   491.267    424.111   491.583   423.9992  491.6134  0.1117859 -0.030396
+  413.039    42.476     410.49    42.995   410.4038  43.01921  0.0862122 -0.024208
+   23.399   365.115     20.723   365.493   20.90656  365.4807  -0.183561 0.0123596
+  485.684    33.745    483.008    34.437   483.0175  34.29861  -0.009491 0.1383858
+  451.999    37.567    449.329    38.113    449.347  38.11589  -0.018005 -0.002892
+  445.248    220.19    442.556   220.676   442.5825  220.6577  -0.026489 0.0182953
+

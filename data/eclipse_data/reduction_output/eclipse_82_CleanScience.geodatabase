@@ -1,0 +1,29 @@
+# Thu 11:39:22 04-Jun-2015
+begin	broccoli
+	xrefmean	273.8163
+	yrefmean	309.1188
+	xmean		272.3432
+	ymean		308.8479
+	geometry	rscale
+	function	polynomial
+	xshift		-1.37758
+	yshift		-0.2226339
+	xmag		0.9997591
+	ymag		0.9997591
+	xrotation	359.9945
+	yrotation	359.9945
+	xrms		0.08152161
+	yrms		0.1097633
+	surface1	11
+			3.	3.
+			2.	2.
+			2.	2.
+			0.	0.
+			1.	1.
+			512.	512.
+			1.	1.
+			512.	512.
+			-1.37758	-0.2226339
+			0.9997591	9.549221E-5
+			-9.549221E-5	0.9997591
+	surface2	0

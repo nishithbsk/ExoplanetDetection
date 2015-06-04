@@ -1,0 +1,38 @@
+
+# Coordinate list: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_130_CleanScience.geomapin  Transform: broccoli
+#     Results file: /afs/ir.stanford.edu/class/physics100/workdir/DAN_Project/data/eclipse_data/reduction_output/eclipse_130_CleanScience.geosum
+# Coordinate mapping status
+#     X fit ok.  Y fit ok.
+#     Xin and Yin fit rms: 0.  0.
+# Coordinate mapping parameters
+#     Mean Xref and Yref: 329.2036  234.1128
+#     Mean Xin and Yin: 329.2036  234.11280.7
+#     X and Y shift: 0.  0.  (xin  yin)
+#     X and Y scale: 1.  1.  (xin / xref  yin / yref)
+#     X and Y axis rotation: 0.00000  0.00000  (degrees  degrees)
+
+# Input Coordinate Listing
+#     Column 1: X (reference) 
+#     Column 2: Y (reference)
+#     Column 3: X (input)
+#     Column 4: Y (input)
+#     Column 5: X (fit)
+#     Column 6: Y (fit)
+#     Column 7: X (residual)
+#     Column 8: Y (residual)
+
+  349.962   153.846    349.962   153.846    349.962   153.846         0.        0.
+  281.038   305.649    281.038   305.649    281.038   305.649         0.        0.
+  130.051   392.747    130.051   392.747    130.051   392.747         0.        0.
+  481.862    202.67    481.862    202.67    481.862    202.67         0.        0.
+  118.202   138.687    118.202   138.687    118.202   138.687         0.        0.
+   372.72    47.823     372.72    47.823     372.72    47.823         0.        0.
+  424.999   504.402    424.999   504.402    424.999   504.402         0.        0.
+  411.396    55.643    411.396    55.643    411.396    55.643         0.        0.
+   21.441   378.353     21.441   378.353     21.441   378.353         0.        0.
+  443.738   233.355    443.738   233.355    443.738   233.355         0.        0.
+  240.998    349.66    240.998    349.66    240.998    349.66         0.        0.
+  484.012    46.996    484.012    46.996    484.012    46.996         0.        0.
+  450.318    50.924    450.318    50.924    450.318    50.924         0.        0.
+  398.113   416.824    398.113   416.824    398.113   416.824         0.        0.
+

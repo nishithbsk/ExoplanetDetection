@@ -3,83 +3,80 @@ import numpy as np
 import ldac
 import matplotlib.pyplot as plt
 import sys
+import os
+import re 
 
 object_data = {
-    'm3': {
-        'catalog': 'files/m3.cat',
-        'refcatalog': 'files/m3_ref.cat',
-        'true_b_mag': 10.89,
-        'err_b_mag': 0.06,
-        'true_v_mag': 10.13,
-        'err_v_mag': 0.03,
-        'refstar_index': 71,
+    'normal': {
+    	'path': '/usr/class/physics100/workdir/DAN_Project/data/normal_data/photometry_output/',
+        'catalog': '/usr/class/physics100/workdir/DAN_Project/data/normal_data/photometry_output/normal_files/',
+        'true_mag': 9.42,
+        'err_mag': 0.06,
+        'refstar_index': 12,
     },
-    'ngc2158': {
-        'catalog': 'files/ngc2158.cat',
-        'refcatalog': 'files/ngc2158_ref.cat',
-        'true_b_mag': 10.07,
-        'err_b_mag': 0.03,
-        'true_v_mag': 9.98,
-        'err_v_mag': 0.04,
-        'refstar_index': 252,
+    'eclipse': {
+    	'path': '/usr/class/physics100/workdir/DAN_Project/data/eclipse_data/photometry_output/',
+        'catalog': '/usr/class/physics100/workdir/DAN_Project/data/eclipse_data/photometry_output/eclipse_files/',
+        'true_mag': 9.42,
+        'err_mag': 0.06,
+        'refstar_index': 12,
     }
 }
 
 # MAX ERROR
-ERROR_THRESHOLD = 1.5
+ERROR_THRESHOLD = 0.5
 
-def get_error_bar(object_name, cat, corr, x_filter_1, x_filter_2, y_filter):
-	# x_filters for plotting over x axis
-	# y filters for plotting over y axis
-	
-	x1_corr = cat['mag' + x_filter_1] + corr['corr' + x_filter_1]
-	x2_corr = cat['mag' + x_filter_2] + corr['corr' + x_filter_2]
-	x1_err  = np.sqrt(np.square(cat['magerr' + x_filter_1]) + corr['partial_err' + x_filter_1])
-	x2_err  = np.sqrt(np.square(cat['magerr' + x_filter_2]) + corr['partial_err' + x_filter_2])
-	x_vals  = x1_corr - x2_corr
-	x_errs  = np.sqrt(np.square(x1_err) + np.square(x2_err))
+def sorted_nicely( l ): 
+    """ Sort the given iterable in the way that humans expect.""" 
+    convert = lambda text: int(text) if text.isdigit() else text 
+    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
+    return sorted(l, key = alphanum_key)
 
-	y_vals  = cat['mag' + y_filter] + corr['corr' + y_filter]
-	y_errs  = np.sqrt(np.square(cat['magerr' + y_filter]) + corr['partial_err' + y_filter])
+def get_error_bar(object_name, cat, corr):
+	y_vals = cat['mag'] + corr['corr']
+	y_errs = np.sqrt(np.square(cat['magerr']) + corr['partial_err'])
 
-	return_x, return_y = [], []
-	return_x_err, return_y_err = [], []
-	for x, x_err, y, y_err in zip(x_vals, x_errs, y_vals, y_errs):
-		# check for NaN - baaad code
-		if math.isnan(x) is False and math.isnan(x_err) is False and math.isnan(y) is False and math.isnan(y_err) is False:
-			# cutting off error
-			# print x_err, y_err
-			if x_err < ERROR_THRESHOLD and y_err < ERROR_THRESHOLD:
-				# print "YAY"
-				return_x.append(x)
-				return_x_err.append(x_err)
+	return_y, return_y_err = [], []
+	for y, y_err in zip(y_vals, y_errs):
+		if math.isnan(y) is False and math.isnan(y_err) is False:
+			if y_err < ERROR_THRESHOLD:
 				return_y.append(y)
 				return_y_err.append(y_err)
 
-	print return_x
-	return (return_x, return_y, return_x_err, return_y_err)
+	return (return_y, return_y_err)
 	
-def plot(object_name, x_filter_1, x_filter_2, y_filter, data):
-	x, y, x_errs, y_errs = data
-	plt.errorbar(x, y, xerr=x_errs, yerr=y_errs, fmt='o')
+def plot(object_name, y, y_errs):
+	x = np.arange(len(y))
+	plt.errorbar(x, y, yerr=y_errs, fmt='o')
 	plt.gca().invert_yaxis()
-	plt.xlabel(x_filter_1 + ' - ' + x_filter_2)
-	plt.ylabel(y_filter)
+	plt.xlabel("Time")
+	plt.ylabel("Magnitude")
 	plt.show()
 
 def corrections(refcatalog, data):
     i = data['refstar_index']
     m = {}
-    m['corrV'] = data['true_v_mag'] - refcatalog['magV'][i]
-    m['partial_errV'] = data['err_v_mag']**2 + refcatalog['magerrV'][i]**2
-    m['corrB'] = data['true_b_mag'] - refcatalog['magB'][i]
-    m['partial_errB'] = data['err_b_mag']**2 + refcatalog['magerrB'][i]**2
+    m['corr'] = data['true_mag'] - refcatalog['mag'][i]
+    m['partial_err'] = data['err_mag']**2 + refcatalog['magerr'][i]**2
     return m
 
 object_name = sys.argv[1]
 data = object_data[object_name]
-cat = ldac.openObjectFile(data['catalog'])
-refcat = ldac.openObjectFile(data['refcatalog'])
-corr = corrections(refcat, data)
-err_data = get_error_bar(object_name, cat, corr, 'B', 'V', 'V')
-plot(object_name, 'B', 'V', 'V', err_data)
+all_files = os.listdir(data['catalog'])
+all_files = sorted_nicely(all_files)
+
+all_ys, all_y_errs = [], []
+for cat_file in all_files:
+	cat_file = data['catalog'] + cat_file
+	cat = ldac.openObjectFile(cat_file)
+
+	refcat = cat
+
+	corr = corrections(refcat, data)
+
+	ys, y_errs = get_error_bar(object_name, cat, corr)
+	for y, y_err in zip(ys, y_errs):
+		all_ys.append(y)
+		all_y_errs.append(y_err)
+
+plot(object_name, all_ys, all_y_errs)
